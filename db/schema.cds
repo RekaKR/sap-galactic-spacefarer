@@ -1,4 +1,6 @@
 // Task 1 – Spacefarer Data Model
+namespace db;
+
 using { cuid, managed } from '@sap/cds/common';
 
 entity Spacefarer: cuid, managed {
@@ -11,11 +13,11 @@ entity Spacefarer: cuid, managed {
 }
 
 entity Departments: cuid, managed {
-    name: String;
+    name: String(50);
     positions: Association to many Positions on positions.department = $self;
 }
 
 entity Positions: cuid, managed {
-    title: String;
+    title: String(50);
     department: Association to Departments;
 }

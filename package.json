@@ -13,5 +13,21 @@
   "scripts": {
     "start": "cds-serve"
   },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "basic",
+          "users": {
+            "alice": { "password": "alice123", "roles": ["SpacefarerAdmin"] },
+            "bob":   { "password": "bob123",   "roles": ["SpacefarerViewer"] }
+          }
+      },
+      "db": {
+        "kind": "sqlite",
+        "model": "db/"
+      }
+    }
+  }
+  ,
   "private": true
 }
