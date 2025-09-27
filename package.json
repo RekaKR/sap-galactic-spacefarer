@@ -18,13 +18,16 @@
       "auth": {
         "kind": "basic",
           "users": {
-            "alice": { "password": "alice123", "roles": ["SpacefarerAdmin"] },
-            "bob":   { "password": "bob123",   "roles": ["SpacefarerViewer"] }
+            "alma": { "password": "alma123", "roles": ["SpacefarerAdmin"] },
+            "korte":   { "password": "korte123",   "roles": ["SpacefarerViewer"] }
           }
       },
       "db": {
         "kind": "sqlite",
-        "model": "db/"
+        "model": "db/",
+        "credentials": {
+          "database": "sqlite.db"
+        }
       }
     }
   }

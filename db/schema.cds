@@ -1,4 +1,3 @@
-// Task 1 – Spacefarer Data Model
 namespace db;
 
 using { cuid, managed } from '@sap/cds/common';

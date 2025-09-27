@@ -1,4 +1,3 @@
-// Task 2 – Cosmic Service Definition
 using db from '../db/schema';
 
 service SpacefarerService @(requires:'authenticated-user') {
