@@ -6,7 +6,12 @@ service SpacefarerService @(requires:'authenticated-user') {
         { grant: 'WRITE', to: 'SpacefarerAdmin' }
     ]*/
     @odata.draft.enabled
-    entity Spacefarer as projection on db.Spacefarer;
+    entity Spacefarer as projection on db.Spacefarer {
+        *,
+        department,
+        position
+    };
+
     entity Departments as projection on db.Departments;
     entity Positions as projection on db.Positions;
 }

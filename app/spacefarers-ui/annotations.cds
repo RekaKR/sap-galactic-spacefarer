@@ -1,64 +1,107 @@
 using SpacefarerService as service from '../../srv/spacefarer-service';
+
 annotate service.Spacefarer with @(
-    UI.FieldGroup #GeneratedGroup : {
+    UI.FieldGroup #CosmicSkills : {
         $Type : 'UI.FieldGroupType',
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'stardustCollection',
+                Label : 'Stardust Collection',
                 Value : stardustCollection,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'wormholeNavigation',
+                Label : 'Wormhole Navigation',
                 Value : wormholeNavigation,
             },
+        ],
+    },
+    UI.FieldGroup #Identity : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'originPlanet',
+                Label : 'Origin Planet',
                 Value : originPlanet,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'spacesuitColor',
+                Label : 'Spacesuit Color',
                 Value : spacesuitColor,
+            },
+        ],
+    },
+    UI.FieldGroup #Assignment : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Label : 'Department',
+                Value : department_ID
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'Position',
+                Value : position_ID
             },
         ],
     },
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            ID : 'Facet1',
+            Label : 'Cosmic Skills',
+            Target : '@UI.FieldGroup#CosmicSkills',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'Facet2',
+            Label : 'Identity',
+            Target : '@UI.FieldGroup#Identity',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'Facet3',
+            Label : 'Assignment',
+            Target : '@UI.FieldGroup#Assignment',
         },
     ],
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'stardustCollection',
+            Label : 'Stardust Collection',
             Value : stardustCollection,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'wormholeNavigation',
+            Label : 'Wormhole Navigation',
             Value : wormholeNavigation,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'originPlanet',
+            Label : 'Origin Planet',
             Value : originPlanet,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'spacesuitColor',
+            Label : 'Spacesuit Color',
             Value : spacesuitColor,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Department',
+            Value : department_ID
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Position',
+            Value : position_ID
         },
     ],
 );
 
 annotate service.Spacefarer with {
-    department @Common.ValueList : {
+    department @Common.Text : department.name @Common.ValueList : {
         $Type : 'Common.ValueListType',
         CollectionPath : 'Departments',
         Parameters : [
@@ -72,11 +115,9 @@ annotate service.Spacefarer with {
                 ValueListProperty : 'name',
             },
         ],
-    }
-};
+    };
 
-annotate service.Spacefarer with {
-    position @Common.ValueList : {
+    position @Common.Text : position.title @Common.ValueList : {
         $Type : 'Common.ValueListType',
         CollectionPath : 'Positions',
         Parameters : [
@@ -89,7 +130,11 @@ annotate service.Spacefarer with {
                 $Type : 'Common.ValueListParameterDisplayOnly',
                 ValueListProperty : 'title',
             },
+            {
+                $Type : 'Common.ValueListParameterIn',
+                LocalDataProperty : department_ID,
+                ValueListProperty : 'department_ID',
+            },
         ],
-    }
+    };
 };
-

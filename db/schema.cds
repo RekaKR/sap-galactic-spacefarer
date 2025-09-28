@@ -3,8 +3,8 @@ namespace db;
 using { cuid, managed } from '@sap/cds/common';
 
 entity Spacefarer: cuid, managed {
-    stardustCollection: Integer;
-    wormholeNavigation: Integer;
+    stardustCollection: Integer @mandatory;
+    wormholeNavigation: Integer @mandatory;
     originPlanet: String;
     spacesuitColor: String;
     department: Association to Departments;
