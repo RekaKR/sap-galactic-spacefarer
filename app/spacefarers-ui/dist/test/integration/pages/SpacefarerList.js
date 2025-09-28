@@ -1,0 +1,2 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(e){"use strict";var a={actions:{},assertions:{}};return new e({appId:"my.spacefarer.spacefarersui.spacefarersui",componentId:"SpacefarerList",contextPath:"/Spacefarer"},a)});
+//# sourceMappingURL=SpacefarerList.js.map

@@ -16,6 +16,6 @@
   "scripts": {
     "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf",
     "start": "fiori run --open index.html",
-    "build": "fiori build --all"
+    "build": "ui5 build --all"
   }
 }
