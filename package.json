@@ -8,19 +8,31 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2"
+    "@cap-js/sqlite": "^2",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-spacefarers-ui": "cds watch --open my.spacefarer.spacefarersui.spacefarersui/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
       "auth": {
         "kind": "basic",
-          "users": {
-            "alma": { "password": "alma123", "roles": ["SpacefarerAdmin"] },
-            "korte":   { "password": "korte123",   "roles": ["SpacefarerViewer"] }
+        "users": {
+          "alma": {
+            "password": "alma123",
+            "roles": [
+              "SpacefarerAdmin"
+            ]
+          },
+          "korte": {
+            "password": "korte123",
+            "roles": [
+              "SpacefarerViewer"
+            ]
           }
+        }
       },
       "db": {
         "kind": "sqlite",
@@ -30,7 +42,13 @@
         }
       }
     }
-  }
-  ,
-  "private": true
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/spacefarers-ui",
+    "app/spacefarers-ui"
+  ]
 }

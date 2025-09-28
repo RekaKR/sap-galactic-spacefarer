@@ -16,9 +16,9 @@ module.exports = cds.service.impl(async function () {
   })
 
   this.after('CREATE', Spacefarer, (newSpacefarer, req) => {
-    const planetName = newSpacefarer.originPLanet || "Unknown planet";
+    const planetName = newSpacefarer.originPlanet || "Unknown planet";
     //const color = newSpacefarer.spacesuitColor || "Unknown color";
 
-    console.log(`Welcome Spacefarer from ${planetName}!\nYour adventure among the stars begins now. Congratulations on starting your adventurous journey among the stars!`);
+    req.info(`Welcome Spacefarer from ${planetName}!\nYour adventure among the stars begins now. Congratulations on starting your adventurous journey among the stars!`);
   })
 })
